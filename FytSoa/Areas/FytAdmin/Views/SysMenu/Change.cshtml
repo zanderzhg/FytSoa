@@ -1,0 +1,73 @@
+﻿@model FytSoa.Models.sysmenu
+@{
+    ViewBag.Title = "Change";
+    Layout = "~/Areas/FytAdmin/Views/Shared/_Layout.cshtml";
+}
+<div class="fyt-forms">
+    <form id="forms" class="form-horizontal tow-inline" action="/fytadmin/SysMenu/Change/" method="post"
+          data-ajax="true" data-ajax-begin="fyt.Begin" data-ajax-failure="fyt.Failure" data-ajax-success="fyt.Success" data-ajax-complete="fyt.Complete">
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.SysID)
+        @Html.HiddenFor(model => model.Sort)
+        @Html.HiddenFor(model => model.ClassList)
+        @Html.HiddenFor(model => model.ClassLayer)
+        <div class="form-inline">
+            <div class="form-group">
+                <label class="control-label" for="inputInlineUsername">菜单名称：</label>
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @autocomplete = "off", @required = "" , @maxlength = "50", @placeholder = "请输入菜单名称" })
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="inputInlineUsername">菜单父级：</label>
+                @Html.DropDownListFor(model => model.ParentId, ViewBag.selectList as IEnumerable<SelectListItem>, new { @class = "form-control js-states", @data_plugin = "select2" })
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                <label class="control-label" for="inputInlineUsername">菜单编号：</label>
+                @Html.TextBoxFor(model => model.Code, new { @class = "form-control", @maxlength = "50", @required = "", @placeholder = "请输入菜单编号" })
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="inputInlineUsername">是否显示：</label>
+                @Html.CheckBoxFor(model => model.IsShow, new { @lay_skin = "switch" })
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                <label class="control-label" for="inputInlineUsername">路径地址：</label>
+                @Html.TextBoxFor(model => model.Urls, new { @class = "form-control", @maxlength = "50", @required = "", @placeholder = "请输入路径地址" })
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="inputInlineUsername">控制器名：</label>
+                @Html.TextBoxFor(model => model.ControllerName, new { @class = "form-control", @maxlength = "50", @required = "", @placeholder = "请输入控制器名" })
+            </div>
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                <label class="control-label" for="inputInlineUsername">方法名称：</label>
+                @Html.TextBoxFor(model => model.ActionName, new { @class = "form-control", @maxlength = "50", @required = "", @placeholder = "请输入方法名称" })
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="inputInlineUsername">Icon图标：</label>
+                @Html.TextBoxFor(model => model.Icon, new { @class = "form-control", @maxlength = "50", @placeholder = "请输入Icon" })
+            </div>
+        </div>
+        <div class="fyt-foot-submit">
+            <button class="btn btn-block btn-success btn-save">确定保存</button>
+            <button type="button" class="btn btn-block btn-info btn-dig-close">取消返回</button>
+        </div>
+    </form>
+</div>
+@section quote
+{
+    @Scripts.Render("~/fytadmin/validate")
+}
+@section scripts
+{
+    <script type="text/javascript">
+        $(function() {
+            $("#ParentId").select2();
+            $("#forms").validate();
+        });
+    </script>
+}

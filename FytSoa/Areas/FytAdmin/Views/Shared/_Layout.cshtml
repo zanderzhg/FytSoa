@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    @Styles.Render("~/fytadmin/defaults")
+    @RenderSection("csss", required: false)
+    @Styles.Render("~/fytadmin/styles")
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+@RenderBody()
+@Scripts.Render("~/fytadmin/basejs")
+@RenderSection("quote", required: false)
+@Scripts.Render("~/fytadmin/public")
+@RenderSection("scripts", required: false)
+</body>
+</html>

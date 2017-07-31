@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/FytAdmin/Views/Shared/_Layout.cshtml";
+}
+<div class="fyt-if-all mini-fit">
+    <div class="fyt-toolbar">
+        <div class="fyt-toolbar-nowrap">
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-default btn-add" data-url="/FytAdmin/SysMenu/Change/0" data-box="1" data-size="800|400">添加</button>
+                <button type="button" class="btn btn-default">删除</button>
+                <button type="button" class="btn btn-default">刷新</button>
+            </div>
+        </div>
+    </div>
+    <!-- table begin -->
+    <div id="datagrids" class="mini-datagrid" style="width: 100%;height:100%" url="/fytadmin/sysmenu/getdata/" idField="ID" showPagerButtonText="true" multiSelect="true" allowAlternating="true" sizeList="[20,30,50,100,200,500,1000,5000,10000]" pageSize="20" showEmptyText="true" emptyText="暂无数据">
+        <div property="columns">
+            <div type="checkcolumn"></div>
+            <div field="ID" width="40" headerAlign="left" allowSort="false">ID</div>
+            <div field="Name" width="180" headerAlign="left" allowSort="false" renderer="titleHtml">菜单名称</div>
+            <div field="Code" width="120" headerAlign="left" allowSort="false">代码</div>
+            <div field="Urls" width="250" headerAlign="left" allowSort="false">路径地址</div>
+            <div field="Sort" width="80" headerAlign="left" allowSort="false" renderer="sortHtml">菜单排序</div>
+            <div type="checkboxcolumn" field="IsShow" width="80" headerAlign="left" allowSort="false" trueValue="1" falseValue="0">是否显示</div>
+            <div width="100" headerAlign="left" renderer="showHtml">操作</div>
+        </div>
+    </div>
+
+    <!-- table end -->
+</div>
+@section csss
+{
+    @Styles.Render("~/fytadmin/tablecss")
+}
+@section quote
+{
+    @Scripts.Render("~/fytadmin/tablejs")
+}
+@section scripts
+{
+    <script type="text/javascript">
+        $("#datagrids").css({'height':$(window).height()-55});
+        var row = grid.getData();
+        function titleHtml(e) {
+            var h = '<a href="javascript:void(0)" onclick="dig.Open(\'编辑\',\'/FytAdmin/SysMenu/Change/' +
+                e.record.ID +
+                '\',\'800px\' ,\'400px\',function(){grid.reload();})" class="text-navy" style="display: inline-block;padding:8px 5px 0 5px">';
+            h += e.record.Name + '　<i class="im-pencil2"></i></a>';
+            return h;
+        }
+
+        function showHtml(e) {
+            return '<a href="javascript:void(0)" onclick="dig.Open(\'添加子模块\',\'/FytAdmin/SysMenu/Change/0?pid=' +
+                e.record.ID +
+                '\',\'800px\' ,\'400px\',function(){grid.reload();})" class="text-navy" style="display: inline-block;padding:8px 5px 0 5px">[添加子模块]</a>';
+        }
+
+        function sortHtml(e) {
+            var str = '<a href="javascript:void(0)" onclick="colSort(0,' +
+                e.record.ID +
+                ',' +
+                e.record.ParentId +
+                ')" class="text-navy" title="向上" style="display: inline-block;padding:8px 5px 0 5px"><i class="fa fa-long-arrow-up"></i></a>　';
+            str += '<a href="javascript:void(0)" onclick="colSort(1,' +
+                e.record.ID +
+                ',' +
+                e.record.ParentId +
+                ')" class="text-navy" title="向下" style="display: inline-block;padding:8px 5px 0 5px"><i class="fa fa-long-arrow-down"></i></a>';
+            return str;
+        }
+
+        function colSort(oby, i, p) {
+            $.post("/FytAdmin/SysMenu/ColSort",
+                { o: oby, i: i, p: p },
+                function(res) {
+                    if (res.status == 200) {
+                        grid.load();
+                    } else {
+                        dig.alertErr("消息", res.msg);
+                    }
+                },
+                "json");
+        }
+
+    </script>
+}

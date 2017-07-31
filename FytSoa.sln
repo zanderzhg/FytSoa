@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{47B6DABF-9312-4D82-984A-E13C4C523091}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B1881545-FE39-4822-A5D5-79D0625A3190}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{35C053BD-3381-4B54-AEEF-3428BEC475C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Comment", "Comment", "{D3069ADB-EA49-4DAB-80EF-2F1420FE3D7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FytSoa.Core", "FytSoa.Core\FytSoa.Core.csproj", "{33E10725-3D29-48AE-8BBD-EE19976DB4E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FytSoa.Common", "FytSoa.Common\FytSoa.Common.csproj", "{3C604068-A4AB-4EDC-B47E-1C6AEA3F5947}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FytSoa", "FytSoa\FytSoa.csproj", "{68B316BF-91A7-4E68-BAAE-1153B4AF5D91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FytSoa.Services", "FytSoa.Services\FytSoa.Services.csproj", "{27F89B6C-2C6F-4AB6-9E03-F06BD29185FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{33E10725-3D29-48AE-8BBD-EE19976DB4E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33E10725-3D29-48AE-8BBD-EE19976DB4E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33E10725-3D29-48AE-8BBD-EE19976DB4E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33E10725-3D29-48AE-8BBD-EE19976DB4E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C604068-A4AB-4EDC-B47E-1C6AEA3F5947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C604068-A4AB-4EDC-B47E-1C6AEA3F5947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C604068-A4AB-4EDC-B47E-1C6AEA3F5947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C604068-A4AB-4EDC-B47E-1C6AEA3F5947}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68B316BF-91A7-4E68-BAAE-1153B4AF5D91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68B316BF-91A7-4E68-BAAE-1153B4AF5D91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68B316BF-91A7-4E68-BAAE-1153B4AF5D91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68B316BF-91A7-4E68-BAAE-1153B4AF5D91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27F89B6C-2C6F-4AB6-9E03-F06BD29185FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27F89B6C-2C6F-4AB6-9E03-F06BD29185FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27F89B6C-2C6F-4AB6-9E03-F06BD29185FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27F89B6C-2C6F-4AB6-9E03-F06BD29185FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{33E10725-3D29-48AE-8BBD-EE19976DB4E1} = {B1881545-FE39-4822-A5D5-79D0625A3190}
+		{3C604068-A4AB-4EDC-B47E-1C6AEA3F5947} = {D3069ADB-EA49-4DAB-80EF-2F1420FE3D7D}
+		{68B316BF-91A7-4E68-BAAE-1153B4AF5D91} = {47B6DABF-9312-4D82-984A-E13C4C523091}
+		{27F89B6C-2C6F-4AB6-9E03-F06BD29185FB} = {35C053BD-3381-4B54-AEEF-3428BEC475C0}
+	EndGlobalSection
+EndGlobal

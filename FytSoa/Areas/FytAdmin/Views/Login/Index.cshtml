@@ -1,0 +1,75 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动设备 viewport -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">
+    <!-- 360浏览器默认使用Webkit内核 -->
+    <meta name="renderer" content="webkit">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    @Styles.Render("~/fytadmin/basecss")
+    @Styles.Render("~/fytadmin/logins")
+    <title>北京飞易腾科技有限公司-后台管理系统</title>
+</head>
+
+<body class="log-body">
+<div class="login-form">
+    <div class="title">
+        <img src="/content/wwwroot/lib/img/logo.jpg" /><span>后台管理系统</span>
+    </div>
+    <div class="login-box">
+        <form action="/fytadmin/login/" method="post" id="loginform" data-ajax="true" data-ajax-begin="log.Begin" data-ajax-complete="log.Complete" data-ajax-success="log.Success" 
+              data-ajax-failure="log.Failure">
+            <div class="form-inline">
+                <div class="form-inline-font">
+                    <span class="glyphicon glyphicon-user"></span>
+                </div>
+                <div class="form-inline-input clearfix">
+                    <input type="text" id="loginname" name="loginname" value="" placeholder="请输入用户名" required="required" Maximum ="8" class="fyt-txt" />
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-inline-font">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </div>
+                <div class="form-inline-input clearfix">
+                    <input type="password" id="password" name="password" placeholder="请输入密码" required="required" Maximum ="16" class="fyt-txt" />
+                </div>
+            </div>
+            <div class="form-inline inline-code">
+                <div class="form-inline-font">
+                    <span class="glyphicon glyphicon-send"></span>
+                </div>
+                <div class="form-inline-input">
+                    <div class="code-box" id="code-box">
+                        <input type="text" id="code" name="code" placeholder="向右滑动完成验证" class="code-input" />
+                        <p></p>
+                        <small id="box-tip">向右滑动完成验证</small>
+                        <span>>>></span>
+                    </div>
+                </div>
+            </div>
+            <div class="login-btn">
+                <div class="user-btn-link">
+                    <!--<a href="">密码找回</a>	moveCode('4664');-->
+                </div>
+                <button type="submit">登录</button>
+            </div>
+            @Html.AntiForgeryToken()
+            <input type="hidden" id="hcode" value="@ViewData["code"]" />
+        </form>
+        <p class="log-footer"> Copyright 2011 - 2016　<a href="https://www.feiyit.com" target="_blank">feiyit.com</a></p>
+    </div>
+</div>
+</body>
+@Scripts.Render("~/fytadmin/basejs")
+@Scripts.Render("~/fytadmin/validate")
+@Scripts.Render("~/fytadmin/loginjs")
+</html>
